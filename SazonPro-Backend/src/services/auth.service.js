@@ -1,13 +1,8 @@
 import { User } from '../models/user.model.js'
 import { encryptPass, comparePass } from '../utils/encrypt.handdle.js';
 
-export const registerUser = async (req, res) => {
-    try {
-        const { name, email, password } = req.body;
-        const checkUser = await User.findOne({email: email});
-
-        if(checkUser)return "User already exists";
-        
+export const registerUser = async (name, email, password) => {
+    try {        
         const pass = await encryptPass(password);
 
         const newUser = User.create({ name: name, email: email, password: pass });
@@ -18,18 +13,14 @@ export const registerUser = async (req, res) => {
     }
 }
 
-export const loginUser = async(req, res)=>{
+export const loginUser = async(existsUser,password)=>{
     try{
-        const { email, password } = req.body;
-        const existUser = await User.findOne({email:email});
 
-        if(!existUser) return "User not found";
-
-        const isCorrect = await comparePass(password, existUser.password);
+        const isCorrect = await comparePass(password, existsUser.password);
         console.log(isCorrect)
 
         if(!isCorrect) return "Password incorrect";
-        return existUser;
+        return existsUser;
     }catch(e){
         console.log("error" + e)
     }
