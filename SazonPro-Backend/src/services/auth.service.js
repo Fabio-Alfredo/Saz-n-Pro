@@ -1,28 +1,22 @@
 import { User } from '../models/user.model.js'
 import { encryptPass, comparePass } from '../utils/encrypt.handdle.js';
 import { generateToken } from '../utils/jwt.handdle.js';
+import { HttpError } from '../utils/error.handdle.js';
 
 export const registerUser = async (name, email, password) => {
-    try {        
-        const pass = await encryptPass(password);
-        const newUser = User.create({ name: name, email: email, password: pass });
-        return newUser;
 
-    } catch (e) {
-        console.log("error" + e)
-    }
+    const pass = await encryptPass(password);
+    const newUser = User.create({ name: name, email: email, password: pass });
+    return newUser;
+
 }
 
-export const loginUser = async(existsUser,password)=>{
-    try{
+export const loginUser = async (existsUser, password) => {
 
-        const isCorrect = await comparePass(password, existsUser.password);
-        if(!isCorrect) throw new  "Password incorrect";
-    
-        const token = generateToken({id:existsUser.id, email:existsUser.email});
+    const isCorrect = await comparePass(password, existsUser.password);
+    if (!isCorrect) throw new HttpError(404, "User not found");
 
-        return token;
-    }catch(e){
-        console.log("error" + e)
-    }
+    const token = generateToken({ id: existsUser.id, email: existsUser.email });
+
+    return token;
 }

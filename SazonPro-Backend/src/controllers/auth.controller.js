@@ -1,5 +1,6 @@
 import { registerUser, loginUser } from "../services/auth.service.js";
 import { existsUser } from "../services/user.service.js";
+import { handdleHttpError } from "../utils/error.handdle.js";
 
 export const registerController = async (req, res) => {
     try{
@@ -24,6 +25,7 @@ export const loginController = async(req, res)=>{
         const response = await loginUser(existUser, password);
         res.send(response)
     }catch(e){
-        console.log("error"+e)
+        console.log('este'+e)
+        handdleHttpError(res, e.message, e)
     }
 }
