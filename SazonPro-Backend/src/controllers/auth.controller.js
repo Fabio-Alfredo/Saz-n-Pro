@@ -5,10 +5,10 @@ export const registerController = async (req, res) => {
     try{
         const { name, email, password } = req.body
         const existUser = await existsUser(email);
-        if(existUser) return res.sed("User already exists");
+        if(existUser) return res.status(400).send("User already exists");
 
         const response = await registerUser(name, email, password);
-        res.send(response);
+        res.status(201).send(response);
     }catch(e){
         console.log("error"+e)
     }

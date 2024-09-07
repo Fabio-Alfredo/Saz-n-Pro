@@ -10,7 +10,7 @@ export const generateToken = (data)=>{
         {expiresIn: '1h'}
     )
 
-    return token;
+    return data={token};
 }
 
 export const verifyToken = (token)=>{
