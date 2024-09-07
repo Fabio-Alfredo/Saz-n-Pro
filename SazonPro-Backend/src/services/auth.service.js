@@ -6,9 +6,8 @@ export const registerUser = async (req, res) => {
         const { name, email, password } = req.body;
         const checkUser = await User.findOne({email: email});
 
-        if(checkUser){
-            return "User already exists";
-        }
+        if(checkUser)return "User already exists";
+        
         const pass = await encryptPass(password);
 
         const newUser = User.create({ name: name, email: email, password: pass });
@@ -23,14 +22,13 @@ export const loginUser = async(req, res)=>{
     try{
         const { email, password } = req.body;
         const existUser = await User.findOne({email:email});
-        if(!existUser){
-            return "User not found";
-        }
+
+        if(!existUser) return "User not found";
+
         const isCorrect = await comparePass(password, existUser.password);
         console.log(isCorrect)
-        if(!isCorrect){
-            return "Password incorrect";
-        }
+
+        if(!isCorrect) return "Password incorrect";
         return existUser;
     }catch(e){
         console.log("error" + e)
