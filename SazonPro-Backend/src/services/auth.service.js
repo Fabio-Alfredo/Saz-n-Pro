@@ -1,5 +1,6 @@
 import { User } from '../models/user.model.js'
 import { encryptPass, comparePass } from '../utils/encrypt.handdle.js';
+import { generateToken } from '../utils/jwt.handdle.js';
 
 export const registerUser = async (name, email, password) => {
     try {        
@@ -17,10 +18,11 @@ export const loginUser = async(existsUser,password)=>{
     try{
 
         const isCorrect = await comparePass(password, existsUser.password);
-        console.log(isCorrect)
-
         if(!isCorrect) return "Password incorrect";
-        return existsUser;
+    
+        const token = generateToken({id:existsUser.id, email:existsUser.email});
+        
+        return token;
     }catch(e){
         console.log("error" + e)
     }
