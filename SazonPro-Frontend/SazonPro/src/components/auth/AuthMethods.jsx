@@ -12,17 +12,16 @@ const AuthMethods = () => {
         </h1>
         <LoginForm />
       </div>
-
-      <div className="row-span-1 flex flex-col items-center pt-5 gap-4">
-        <p className="text-center">-- OR --</p>
-        <div className="flex justify-between gap-3 w-3/4">
-          <button className="flex pl-1 items-center border-solid border border-gray gap-2 h-8 w-28 rounded-lg cursor-pointer">
-            <FaGithub className="text-2xl" />
-            Github
+      <div className="row-span-1 flex flex-col items-center pt-5 gap-1">
+        <p className="text-center font-sans">-- OR --</p>
+        <div className="flex justify-between w-full px-8">
+          <button className="flex pl-1 items-center border-solid border border-gray h-10 w-36 rounded-lg cursor-pointer font-sans text-xs">
+            <FaGithub className="text-2xl mr-1" />
+            Sing up with Github
           </button>
-          <button className="flex pl-1 items-center border-solid border border-gray gap-2 h-8 w-28 rounded-lg cursor-pointer">
-            <FcGoogle className="text-2xl" />
-            Google
+          <button className="flex pl-1 items-center border-solid border border-gray h-10 w-36 rounded-lg cursor-pointer font-sans text-xs">
+            <FcGoogle className="text-2xl mr-1" />
+            Sing up with Google
           </button>
         </div>
       </div>

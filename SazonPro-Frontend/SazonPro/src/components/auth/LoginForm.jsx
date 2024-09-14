@@ -27,11 +27,11 @@ const LoginForm = () => {
       </div>
       <div className="flex flex-col items-center gap-4">
         <input
-          className="bg-primary rounded-md h-8 w-3/5 cursor-pointer"
+          className="bg-primary rounded-md h-8 w-3/5 cursor-pointer font-sans font-semibold text-sm"
           type="submit"
           value="Signin"
         />
-        <p className="text-sm text-center">
+        <p className="text-sm text-center font-sans">
           already have an account? <a className='text-secondary' href="#">Signup</a>
         </p>
       </div>
