@@ -10,7 +10,9 @@ export default {
       secondary: '#F2D335',
       tertiary: '#D9BD32',
       gray: '#B0BAC3',
-      gray_dark: '#7C838A'
+      gray_dark: '#7C838A',
+      white: '#FFFFFF',
+      inputs: '#E6F3FF',
     },
     extend: {},
   },
