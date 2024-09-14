@@ -14,6 +14,9 @@ export default {
       white: '#FFFFFF',
       inputs: '#E6F3FF',
     },
+    fontFamily: {
+      sans: ['Poppins', 'sans-serif'],
+    },
     extend: {},
   },
   plugins: [],
