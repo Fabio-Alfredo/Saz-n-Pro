@@ -12,7 +12,7 @@ export default {
       gray: '#B0BAC3',
       gray_dark: '#7C838A',
       white: '#FFFFFF',
-      inputs: '#E6F3FF',
+      gray_light_blue: '#E6F3FF',
     },
     fontFamily: {
       sans: ['Poppins', 'sans-serif'],
