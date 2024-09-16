@@ -2,23 +2,16 @@ import React from "react";
 
 const LoginForm = () => {
   return (
-    <form className="grid grid-rows-4 place-items-center p-5 w-full">
+    <form className="grid grid-rows-3 place-items-center p-5 w-full">
       <div className='flex flex-col pb-4 w-64'>
-        <label className='pb-1 font-sans font-normal text-sm md:text-xl'>Your name:</label>
-        <input
-          className="h-10 w-full rounded-xl pl-2 bg-gray bg-opacity-40 text-sm md:text-base"
-          placeholder="Enter your name"
-        />
-      </div>
-      <div className='flex flex-col pb-4 w-64'>
-        <label className="pb-1 font-sans font-normal  text-sm">Your email:</label>
+        <label className="pb-1 font-sans font-normal text-sm md:text-base">Your email:</label>
         <input
           className="h-10 w-full rounded-xl pl-2 bg-gray bg-opacity-40 text-sm md:text-base"
           placeholder="Enter your email"
         />
       </div>
       <div className='flex flex-col pb-2 w-64'>
-        <label className="pb-1 font-sans font-normal text-sm">Your password:</label>
+        <label className="pb-1 font-sans font-normal text-sm md:text-base">Your password:</label>
         <input
           className='h-10 w-full rounded-xl pl-2 bg-gray bg-opacity-40 text-sm md:text-base'
           type="password"
@@ -32,7 +25,7 @@ const LoginForm = () => {
           value="Signin"
         />
         <p className="text-sm text-center font-sans">
-          already have an account? <a className='text-secondary' href="#">Signup</a>
+          already have an account? <a className='text-secondary hover:underline visited:text-tertiary' href="#">Signup</a>
         </p>
       </div>
     </form>
