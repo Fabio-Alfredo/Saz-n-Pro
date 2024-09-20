@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "../../hooks/useForm"
 import { Login } from "../../service/AuthService"
+import Swal from "sweetalert2";
 
 const LoginForm = () => {
 
@@ -10,14 +11,28 @@ const LoginForm = () => {
   })
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    const data = {
-      email,
-      password
+    try {
+      e.preventDefault()
+      const data = {
+        email,
+        password
+      }
+      const res = await Login(data);
+      console.log(res);
+      Swal.fire({
+        position: "top-center",
+        icon: "success",
+        title: "Login successful",
+        showConfirmButton: false,
+        timer: 1000
+      });
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: `${error}`,
+      });
     }
-    console.log(data)
-    const res = await Login(data);
-    console.log(res)
   }
 
 
