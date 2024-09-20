@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 
 const LoginForm = () => {
 
-  const { email, password, handleInputChange, resetForm } = useForm({
+  const { email, password, handleInputChange } = useForm({
     email: '',
     password: ''
   })
@@ -18,7 +18,6 @@ const LoginForm = () => {
         password
       }
       const res = await Login(data);
-      console.log(res);
       Swal.fire({
         position: "top-center",
         icon: "success",

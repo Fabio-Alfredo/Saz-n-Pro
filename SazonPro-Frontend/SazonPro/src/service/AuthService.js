@@ -17,6 +17,7 @@ export const Register = async (data) => {
     const res = await axios.post(`${baseUrl}register`, data)
     return res.data
   } catch (e) {
-    console.log("el error" + e)
+    console.log("el error" + e.response.data)
+    throw e.response.data
   }
 }

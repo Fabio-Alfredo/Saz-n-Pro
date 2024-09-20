@@ -12,14 +12,29 @@ const RegisterForm = () => {
   })
 
   const submitForm = async (e) => {
-    e.preventDefault()
-    const response = {
-      name,
-      email,
-      password
+    try {
+      e.preventDefault()
+      const response = {
+        name,
+        email,
+        password
+      }
+      const res = await Register(response);
+      Swal.fire({
+        position: "top-center",
+        icon: "success",
+        title: "Login successful",
+        showConfirmButton: false,
+        timer: 1000
+      });
+      console.log(res)
+    } catch (e) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: `${e.error}`,
+      });
     }
-    const res = await Register(response);
-    console.log(res);
   }
 
   return (
