@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 
 const LoginForm = () => {
 
-  const { email, password, handleInputChange } = useForm({
+  const { email, password, handleInputChange, resetForm } = useForm({
     email: '',
     password: ''
   })
@@ -26,11 +26,12 @@ const LoginForm = () => {
         showConfirmButton: false,
         timer: 1000
       });
-    } catch (error) {
+      console.log(res)
+    } catch (e) {
       Swal.fire({
         icon: "error",
         title: "Oops...",
-        text: `${error}`,
+        text: `${e.error}`,
       });
     }
   }
@@ -44,6 +45,7 @@ const LoginForm = () => {
           value={email}
           onChange={handleInputChange}
           name="email"
+          type="email"
           className="h-10 w-full rounded-xl pl-2 bg-gray bg-opacity-40 text-sm md:text-base"
           placeholder="Enter your email"
         />
