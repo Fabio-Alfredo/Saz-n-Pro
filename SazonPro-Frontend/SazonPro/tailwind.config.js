@@ -5,7 +5,7 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    colors:{
+    colors: {
       primary: '#F9ED32',
       secondary: '#F2D335',
       tertiary: '#D9BD32',
@@ -17,7 +17,11 @@ export default {
     fontFamily: {
       sans: ['Poppins', 'sans-serif'],
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'hero-pattern': "url('/src/assets/background.png')",
+      }
+    },
   },
   plugins: [],
 }
