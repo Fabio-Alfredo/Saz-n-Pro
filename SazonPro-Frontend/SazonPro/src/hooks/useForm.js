@@ -11,6 +11,18 @@ export const useForm = (initForm = {}) => {
     })
   }
 
+  const handleArrayChange = (index, e, arrayName) => {
+    const { name, value } = e.target;
+    const updatedArray = formValues[arrayName].map((item, i) =>
+      i === index ? { ...item, [name]: value } : item
+    );
+
+    setFormValue({
+      ...formValues,
+      [arrayName]: updatedArray,
+    });
+  };
+
   const resetForm = () => {
     setFormValue(initForm)
   }
@@ -19,6 +31,7 @@ export const useForm = (initForm = {}) => {
     ...formValues,
     formValues,
     handleInputChange,
-    resetForm
+    resetForm,
+    handleArrayChange
   }
 }
