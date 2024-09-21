@@ -22,10 +22,6 @@ const recipesSchema = new Schema({
         type: Number,
         required: true
     },
-    serves:{
-        type: Number,
-        required: true
-    },
     author:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
