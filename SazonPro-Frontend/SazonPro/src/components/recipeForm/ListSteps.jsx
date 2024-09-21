@@ -18,19 +18,19 @@ const ListSteps = () => {
 
 
   return (
-    <div className="mt-4">
+    <div className="mt-4 w-full md:w-2/3">
       <label className="pb-1 font-sans font-normal text-sm md:text-base">Pasos:</label>
       {
         steps && steps.length > 0 ? (
           steps.map((step, index) => (
-            <div key={index} className="flex mb-2 gap-2 items-center">
+            <div key={index} className="flex flex-col mb-2 gap-2 items-center">
               <label>{index + 1}</label>
               <textarea
                 name="description"
                 value={step.description}
                 onChange={(e) => handleArrayChange(e.target.value, index, 'steps', 'description')}
                 placeholder="Descripción del paso"
-                className="w-full h-16 px-2 rounded-xl bg-gray font-sans bg-opacity-40 text-sm md:text-base"
+                className="w-full h-16 p-2 rounded-xl bg-gray font-sans bg-opacity-40 text-sm md:text-base"
               />
             </div>
           ))) : (

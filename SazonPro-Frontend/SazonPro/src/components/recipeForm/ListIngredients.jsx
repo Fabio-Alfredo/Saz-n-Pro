@@ -19,7 +19,7 @@ const ListIngredients = () => {
 
   return (
     <>
-      <div className="mt-4">
+      <div className="mt-4 w-full md:w-2/3">
         <label className="pb-1 font-sans font-normal text-sm md:text-base">Ingredientes:</label>
         {
           ingredients && ingredients.length > 0 ? (
