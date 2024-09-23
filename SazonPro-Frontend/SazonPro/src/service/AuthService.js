@@ -7,7 +7,7 @@ export const Login = async (data) => {
     const res = await axios.post(`${baseUrl}login`, data)
     return res.data
   } catch (e) {
-    console.log(e.response.data)
+    console.log(e.response)
     throw e.response.data
   }
 }

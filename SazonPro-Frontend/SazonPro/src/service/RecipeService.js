@@ -1,10 +1,10 @@
 import axios from "axios";
 
-const baseUrl = "http://localhost:300/recipe/"
+const baseUrl = "http://localhost:3000/recipe/"
 
 export const createRecipe = async (recipe) => {
   try {
-    const res = await axios.post(`${baseUrl}recipe`, recipe,
+    const res = await axios.post(`${baseUrl}create`, recipe,
       {
         headers: {
           "Content-Type": "application/json",
@@ -14,5 +14,6 @@ export const createRecipe = async (recipe) => {
     return res
   } catch (e) {
     console.error(e);
+    throw e.response.data
   }
 }
