@@ -1,10 +1,6 @@
 import React, { useState } from "react";
-import { useForm } from "../../hooks/useForm";
 
-const ListSteps = () => {
-  const { steps, handleArrayChange, handleInputChange } = useForm({
-    steps: [{ description: "", number: 1 }],
-  })
+const ListSteps = ({ steps = [], handleArrayChange, handleInputChange }) => {
 
   const addStep = () => {
     handleInputChange({
@@ -27,8 +23,8 @@ const ListSteps = () => {
               <label>{index + 1}</label>
               <textarea
                 name="description"
-                value={step.description}
-                onChange={(e) => handleArrayChange(e.target.value, index, 'steps', 'description')}
+                value={step.description || ''}
+                onChange={(e) => handleArrayChange(index, e, 'steps')}
                 placeholder="Descripción del paso"
                 className="w-full h-16 p-2 rounded-xl bg-gray font-sans bg-opacity-40 text-sm md:text-base"
               />

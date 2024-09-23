@@ -1,12 +1,7 @@
 import React, { useState } from "react"
-import { useForm } from "../../hooks/useForm"
 
 
-const ListIngredients = () => {
-
-  const { ingredients, handleArrayChange, handleInputChange } = useForm({
-    ingredients: [{ name: '', quantity: '', unit: '' }]
-  })
+const ListIngredients = ({ ingredients = [], handleArrayChange, handleInputChange }) => {
 
   const addIngredient = () => {
     handleInputChange({
@@ -16,6 +11,7 @@ const ListIngredients = () => {
       },
     });
   };
+
 
   return (
     <>
@@ -29,8 +25,8 @@ const ListIngredients = () => {
                   type="text"
                   name="name"
                   placeholder="Nombre"
-                  value={ingredient.name}
-                  onChange={(e) => handleArrayChange(e.target.value, index, 'ingredients')}
+                  value={ingredient.name || ''}
+                  onChange={(e) => handleArrayChange(index, e, 'ingredients')}
                   className="w-1/3 h-10 pl-2 rounded-xl bg-gray bg-opacity-40 text-sm md:text-base"
                   required
                 />
@@ -38,17 +34,17 @@ const ListIngredients = () => {
                   type="number"
                   name="quantity"
                   placeholder="Cantidad"
-                  value={ingredient.quantity}
-                  onChange={(e) => handleArrayChange(e.target.value, index, 'ingredients')}
+                  value={ingredient.quantity || ''}
+                  onChange={(e) => handleArrayChange(index, e, 'ingredients')}
                   className="w-1/3 h-10 pl-2 rounded-xl bg-gray bg-opacity-40 text-sm md:text-base"
                   required
                 />
                 <input
-                  type="text"
+                  type="number"
                   name="unit"
                   placeholder="Unidad gm..."
-                  value={ingredient.unit}
-                  onChange={(e) => handleArrayChange(e.target.value, index, 'ingredients')}
+                  value={ingredient.unit || ''}
+                  onChange={(e) => handleArrayChange(index, e, 'ingredients')}
                   className="w-1/3 h-10 pl-2 rounded-xl bg-gray bg-opacity-40 text-sm md:text-base"
                   required
                 />
