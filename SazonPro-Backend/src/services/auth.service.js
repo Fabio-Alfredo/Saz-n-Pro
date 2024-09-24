@@ -14,7 +14,6 @@ export const registerUser = async (name, email, password) => {
 export const loginUser = async (existsUser, password) => {
 
     const isCorrect = await comparePass(password, existsUser.password);
-    console.log(password)
     if (!isCorrect) throw new HttpError(404, "Credentials error");
 
 

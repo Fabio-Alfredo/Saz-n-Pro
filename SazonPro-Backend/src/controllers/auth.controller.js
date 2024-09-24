@@ -19,6 +19,7 @@ export const registerController = async (req, res) => {
 export const loginController = async (req, res) => {
     try {
         const { email, password } = req.body;
+        console.log(email + password)
         const existUser = await existsUser(email);
 
         if (!existUser) throw new HttpError(404, "User not found");

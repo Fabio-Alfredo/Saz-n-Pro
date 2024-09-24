@@ -14,18 +14,6 @@ const recipesSchema = new Schema({
         stepNumber: Number,
         description: String
     }],
-    prepTime:{
-        type: Number,
-        required: true
-    },
-    cookTime:{
-        type: Number,
-        required: true
-    },
-    serves:{
-        type: Number,
-        required: true
-    },
     author:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
