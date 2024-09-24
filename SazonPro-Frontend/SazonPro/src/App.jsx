@@ -6,7 +6,7 @@ import CreateRecipe from "./pages/CreateRecipe";
 function App() {
   return (
     <>
-      {/*<Login />*/}
+      <Login />
       {/*<Register />*/}
       <CreateRecipe />
     </>
