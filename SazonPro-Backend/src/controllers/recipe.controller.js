@@ -5,7 +5,7 @@ import { verifyToken } from "../utils/jwt.handdle.js";
 
 export const createRecipeController = async (req, res) => {
     try {
-        const { title, ingredients, steps, prepTime, cookTime } = req.body;
+        const { title, ingredients, steps } = req.body;
 
         const token = req.headers.authorization.split(' ')[1];
         
@@ -16,7 +16,7 @@ export const createRecipeController = async (req, res) => {
         const existRecipe = await existsRecipe(title);
         if(existRecipe) throw new HttpError(400, "Recipe already exists");
 
-        const response = await createRecipe(title, ingredients, steps, prepTime, cookTime, id);
+        const response = await createRecipe(title, ingredients, steps, id);
         res.status(201).send(response);
     } catch (e) {
         handdleHttpError(res, e.message, e)
