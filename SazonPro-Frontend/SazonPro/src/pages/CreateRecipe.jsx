@@ -9,13 +9,34 @@ import ModalRecipe from '../components/recipeForm/ModalRecipe';
 
 const CreateRecipe = () => {
 
+  const recipeP = {
+    title: "fsdfaff",
+    ingredients: [
+      { name: "sdfa", quantity: 132, unit: "232", _id: "66f23dded10935e372035d92" },
+      { name: "2112fds", quantity: 121, unit: "21", _id: "66f23dded10935e372035d93" },
+      { name: "fsadf", quantity: 121, unit: "323", _id: "66f23dded10935e372035d94" },
+      { name: "fdsaf", quantity: 1231, unit: "321", _id: "66f23dded10935e372035d95" }
+    ],
+    steps: [
+      { description: "fdsfadsfa", _id: "66f23dded10935e372035d96" },
+      { description: "fsdafa", _id: "66f23dded10935e372035d97" },
+      { description: "fdsfa", _id: "66f23dded10935e372035d98" },
+      { description: "fsdfa", _id: "66f23dded10935e372035d99" }
+    ],
+    author: "66dbceea164604404ae36806",
+    _id: "66f23dded10935e372035d91",
+    dateCreation: "2024-09-24T04:19:42.166Z",
+    __v: 0
+  };
+
+
   const { title, ingredients, steps, cookTime, prepTime, handleInputChange, handleArrayChange, resetForm } = useForm({
     title: '',
     ingredients: [{ name: '', quantity: '', unit: '' }],
     steps: [{ description: '', number: 1 }],
   })
 
-  const [recipe, sendRecipe] = useState('');
+  const [recipe, sendRecipe] = useState(recipeP);
 
   const insertRecipe = async (e) => {
     e.preventDefault()
