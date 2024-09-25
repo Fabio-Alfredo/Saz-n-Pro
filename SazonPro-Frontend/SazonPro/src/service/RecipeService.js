@@ -17,3 +17,18 @@ export const createRecipe = async (recipe) => {
     throw e.response.data
   }
 }
+
+export const getNamesRecipes = async () => {
+  try {
+    const res = await axios.get(`${baseUrl}names`, {
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${localStorage.getItem("token")}`
+      }
+    })
+    return res
+  } catch (e) {
+    console.error(e);
+    throw e.response.data
+  }
+}

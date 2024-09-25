@@ -13,13 +13,20 @@ export default {
       gray_dark: '#7C838A',
       white: '#FFFFFF',
       gray_light_blue: '#E6F3FF',
+      black: '#000000',
     },
     fontFamily: {
       sans: ['Poppins', 'sans-serif'],
     },
     extend: {
       backgroundImage: {
-        'hero-pattern': "url('/src/assets/background.png')",
+        'hero-pattern': "url('/src/assets/images/background.png')",
+        'hero-card': "url('/src/assets/images/recipes.jpg')"
+      },
+      keyframes: {
+        'fade-in-down': {
+
+        }
       }
     },
   },

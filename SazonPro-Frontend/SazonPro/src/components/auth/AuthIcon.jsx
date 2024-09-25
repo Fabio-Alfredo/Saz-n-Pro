@@ -1,5 +1,5 @@
 import React from "react";
-import IconPage from "../../assets/recetas.png"
+import IconPage from "../../assets/images/background.png"
 
 const AuthIcon = () => {
   return (
