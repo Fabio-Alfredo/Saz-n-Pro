@@ -6,7 +6,7 @@ import ViewRecipe from "./pages/ViewRecipes";
 
 function App() {
   return (
-    <>
+    <div className='w-full bg-primary'>
       {/*<Register />
       <CreateRecipe />
 <Login />
@@ -14,7 +14,8 @@ function App() {
 
       <ViewRecipe />
 
-    </>
+
+    </div>
   );
 }
 

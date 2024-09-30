@@ -26,7 +26,7 @@ const LoginForm = () => {
         timer: 1000
       });
       console.log(res)
-      localStorage.setItem("token", res.token);
+
     } catch (e) {
       Swal.fire({
         icon: "error",
