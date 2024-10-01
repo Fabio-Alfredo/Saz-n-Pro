@@ -1,25 +1,32 @@
 import mongoose, { model, Schema } from "mongoose";
 
 const recipesSchema = new Schema({
-    title:{
+    title: {
         type: String,
         required: true
     },
-    ingredients:[{
-        name: String,
-        quantity: Number,
-        unit: String
-    }],
-    steps:[{
-        stepNumber: Number,
-        description: String
-    }],
-    author:{
+    ingredients: {
+        type: [{
+            name: String,
+            quantity: Number,
+            unit: String
+        }],
+        required: true
+    }
+    ,
+    steps: {
+        type: [{
+            stepNumber: Number,
+            description: String
+        }],
+        required: true
+    },
+    author: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
-    dateCreation:{
-        type:Date,
+    dateCreation: {
+        type: Date,
         default: Date.now
     },
 })

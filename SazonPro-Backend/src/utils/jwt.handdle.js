@@ -12,8 +12,3 @@ export const generateToken = (data)=>{
 
     return data={token};
 }
-
-export const verifyToken = (token)=>{
-    const decoded = jwt.verify(token, _JWT_SECRET)
-    return decoded;
-}
