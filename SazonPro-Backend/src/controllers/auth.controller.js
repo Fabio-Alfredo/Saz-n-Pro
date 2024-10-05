@@ -9,6 +9,7 @@ export const registerController = async (req, res) => {
         if (existUser) throw new HttpError(400, "User already exists")
 
         const response = await registerUser(name, email, password);
+        
         res.status(201).send(response);
     } catch (e) {
         console.log("error" + e)
@@ -20,6 +21,7 @@ export const loginController = async (req, res) => {
     try {
         const { email, password } = req.body;
         const existUser = await existsUser(email);
+        console.log(email, password)
 
         if (!existUser) throw new HttpError(404, "User not found");
 

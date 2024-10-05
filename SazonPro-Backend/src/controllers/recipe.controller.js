@@ -1,7 +1,5 @@
 import { createRecipe, existsRecipe, getNameRecipes } from "../services/recipe.service.js";
 import { handdleHttpError, HttpError } from "../utils/error.handdle.js";
-import { existsUser } from "../services/user.service.js";
-import { verifyToken } from "../utils/jwt.handdle.js";
 
 export const createRecipeController = async (req, res) => {
     try {
@@ -9,10 +7,14 @@ export const createRecipeController = async (req, res) => {
         if (!email) throw new HttpError(404, "User not found");
 
         const { title, ingredients, steps } = req.body;
+        console.log(req.files)
+        const img = req.files[0].buffer;
+    
+
         const existRecipe = await existsRecipe(title);
         if (existRecipe) throw new HttpError(400, "Recipe already exists");
 
-        const response = await createRecipe(title, ingredients, steps, id);
+        const response = await createRecipe(title, ingredients, steps, id, img);
         res.status(201).send(response);
     } catch (e) {
         handdleHttpError(res, e.message, e)
