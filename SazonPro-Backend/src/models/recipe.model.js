@@ -12,6 +12,10 @@ const recipesSchema = new Schema({
             unit: String
         }],
         required: true
+    },
+    image:{
+        type: String,
+        required: true
     }
     ,
     steps: {

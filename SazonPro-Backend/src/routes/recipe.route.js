@@ -8,3 +8,4 @@ router.post("/create", verifyToken, createRecipeController);
 router.get("/names", verifyToken, getNameRecipesController)
 
 export default router;
+            
